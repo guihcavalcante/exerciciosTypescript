@@ -4,19 +4,29 @@
 
 // export {}
 
-export function runQuestao1(): void {
+export function runQuestion1Repeticao(): void {
     
-    let cont:number = 0
-    let somatorio:number = 0
-    let num:number = 1
+    let contador = 0
+    let somatorio = 0
 
-    while(num != 0) {
-        let num:number = Number(prompt("Informe um número: "))
-        cont++
+    while(true) {
+        let num = Number(prompt("Informe um número [0 para sair]: "))
+
+        if(isNaN(num)) {
+            alert("Entrada inválida. Tente novamente")
+            continue
+        }
+
+        if (num === 0) {
+            alert("Encerrando...")
+            break
+        }
+
+        contador++
         somatorio += num
     }
 
-    console.log(`Contador: ${cont}`)
+    console.log(`Contador: ${contador}`)
     console.log(`Somatório: ${somatorio}`)
 }
 
