@@ -2,21 +2,27 @@
 // para calcular a soma de todos os números de 1 até o número fornecido. (Ex: somarAte(4)
 // deve retornar 10, pois 1+2+3+4 = 10).
 
-function somarAte(numero:number) {
+export function runQuestion1Funcao() {
 
-    let contador = 1
-    let somador = 0
+    function somarAte(numero:number) {
 
-    while (contador <= numero) {
-       
+        let contador = 1
+        let somador = 0
 
-       somador += contador
-       contador++
+        while (contador <= numero) {
+        
+
+        somador += contador
+        contador++
+
+        }
+        
+        return somador
 
     }
-    
-    return somador
+
+    let num = Number(prompt("Digite o número:"))
+
+    console.log(somarAte(num))
 
 }
-
-console.log(somarAte(4))
