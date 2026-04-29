@@ -13,10 +13,16 @@ document.getElementById("btn4-condicional")?.addEventListener('click', runQuesti
 // REPETIÇÃO
 import { runQuestion1Repeticao } from "./repeticao/questao1.js";
 import { runQuestion2Repeticao } from "./repeticao/questao2.js";
-import {runQuestion3}
+import { runQuestion3Repeticao } from "./repeticao/questao3.js";
+import { runQuestion4Repeticao } from "./repeticao/questao4.js";
+import { runQuestion5Repeticao } from "./repeticao/questao5.js";
 
 
 document.getElementById("btn1-repeticao")?.addEventListener('click', runQuestion1Repeticao)
+document.getElementById("btn2-repeticao")?.addEventListener('click', runQuestion2Repeticao)
+document.getElementById("btn3-repeticao")?.addEventListener('click', runQuestion3Repeticao)
+document.getElementById("btn4-repeticao")?.addEventListener('click', runQuestion4Repeticao)
+document.getElementById("btn5-repeticao")?.addEventListener('click', runQuestion5Repeticao)
 
 // FUNÇÃO
 import { runQuestion1Funcao } from "./funcoes/exercicio01.js";
