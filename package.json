@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guihernandescavalcante/exerciciosTypescript.git"
+    "url": "git+https://github.com/guihcavalcante/exerciciosTypescript.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/guihernandescavalcante/exerciciosTypescript/issues"
+    "url": "https://github.com/guihcavalcante/exerciciosTypescript/issues"
   },
-  "homepage": "https://github.com/guihernandescavalcante/exerciciosTypescript#readme"
+  "homepage": "https://github.com/guihcavalcante/exerciciosTypescript#readme"
 }
