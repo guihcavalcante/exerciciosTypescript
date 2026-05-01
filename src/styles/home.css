@@ -1,0 +1,40 @@
+/* Organizando os botões em grupo */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Estilo profissional para os botões */
+button {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Efeito ao clicar */
+button:active {
+  transform: translateY(0);
+}
+
+.container-botoes {
+  display: flex;
+  flex-wrap: wrap; /* Faz os botões pularem de linha se não couberem */
+  gap: var(--gap);
+  margin-bottom: 20px;
+}
+
