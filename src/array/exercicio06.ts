@@ -5,5 +5,17 @@
 // d) Apresentar os nomes inseridos de forma ordenada.
 
 export function runQuestion6Array() {
-    
+    let nomes: string[] = [];
+
+    for (let i = 0; i < 15; i++) {
+        let nome = prompt(`Digite o nome ${i + 1} de 15:`) || "";
+        nomes.push(nome);
+    }
+
+    console.log("Nomes inseridos:", nomes);
+
+    nomes.sort();
+
+    console.log("Nomes ordenados:", nomes);
+    alert("Lista ordenada: " + nomes.join(", "));
 }

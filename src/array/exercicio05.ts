@@ -9,5 +9,21 @@
 // manter o programa rodando até o usuário escolher sair.
 
 export function runQuestion5Array() {
-    
+    let tarefas: string[] = [];
+
+    while (true) {
+        let op = prompt("1-Adicionar, 2-Concluir, 3-Exibir, 4-Sair");
+
+        if (op === "1") {
+            let t = prompt("Nova tarefa:");
+            if (t) tarefas.push(t);
+        } else if (op === "2") {
+            let index = Number(prompt(`Índice para remover (0 a ${tarefas.length - 1}):`));
+            if (!isNaN(index)) tarefas.splice(index, 1);
+        } else if (op === "3") {
+            alert(tarefas.length > 0 ? tarefas.join("\n") : "Vazio");
+        } else if (op === "4") {
+            break;
+        }
+    }
 }

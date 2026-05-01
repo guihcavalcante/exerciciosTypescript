@@ -7,5 +7,19 @@
 //  Se for &quot;N.A&quot;, imprima: &quot;O aluno não realizou a prova&quot;.
 
 export function runQuestion8Array() {
-    
+
+    let notasSemestre: (number | "N.A")[] = [];
+
+    notasSemestre.push(8.5, 10, "N.A", 7.2);
+
+    console.log("--- BOLETIM HÍBRIDO ---");
+    for (let i = 0; i < notasSemestre.length; i++) {
+        let nota = notasSemestre[i];
+
+        if (typeof nota === "number") {
+            console.log(`Nota: ${nota}`);
+        } else if (nota === "N.A") {
+            console.log("O aluno não realizou a prova");
+        }
+    }
 }
