@@ -14,4 +14,43 @@
 
 export function runQuestion9Funcao() {
 
+    const solicitar_renda_mensal = (): number => {
+        let renda: number;
+        do {
+            renda = Number(prompt("Informe sua renda mensal:"));
+            if (renda <= 0 || isNaN(renda)) {
+                alert("Valor inválido! Informe um valor maior que zero.");
+            }
+        } while (renda <= 0 || isNaN(renda));
+        return renda;
+    };
+
+
+    const analisar_credito = (renda: number, valor_parcela: number): boolean => {
+        const limiteComprometimento = renda * 0.30;
+        
+        let margemDisponivel = limiteComprometimento;
+        if (renda > 5000) {
+            margemDisponivel += 500;
+        }
+
+        return valor_parcela <= margemDisponivel;
+    };
+
+
+    const exibir_status = (resultado: boolean): void => {
+        if (resultado) {
+            console.log("Crédito Aprovado");
+        } else {
+            console.log("Crédito Negado");
+        }
+    };
+
+
+    const rendaCliente = solicitar_renda_mensal();
+    const valorParcelaDesejada = Number(prompt("Informe o valor da parcela que deseja pagar:"));
+
+    const aprovado = analisar_credito(rendaCliente, valorParcelaDesejada);
+    exibir_status(aprovado);
+
 }

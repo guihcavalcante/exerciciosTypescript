@@ -14,5 +14,32 @@
 // o Se status_alerta for False, imprime &quot;Temperatura dentro da faixa normal.&quot;.
 
 export function runQuestion2Funcao() {
+    function lerTemperatura() {
+        let temperatura:number
 
+        while(true) {
+            temperatura = Number(prompt("Digite a temperatura:"))
+
+            if(isNaN(temperatura)) {
+                alert("Entrada inválida. Tente novamente!")
+                continue
+            }
+
+            break
+        }
+        return temperatura
+    }
+
+    function verificarAlertaTemperatura(temperatura:number) {
+        return temperatura < 10 || temperatura > 30
+    }
+
+    function emitirMensagemAlerta(statusAlerta:boolean) {
+        if(statusAlerta) console.log("ALERTA: Temperatura fora da faixa ideal!")
+        else console.log("Temperatura dentro da faixa normal.")
+    }
+
+    let temperatura = lerTemperatura()
+    let statusTemperatura = verificarAlertaTemperatura(temperatura)
+    emitirMensagemAlerta(statusTemperatura)
 }

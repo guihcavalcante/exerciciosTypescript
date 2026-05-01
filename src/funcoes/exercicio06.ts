@@ -24,5 +24,82 @@
 //   Salário Líquido                 : R$  1914,00
 
 export function runQuestion6Funcao() {
+    function lerSalario() {
+        let valorHora:number, horasTrabalhadas:number
 
+        while(true) {
+            valorHora = Number(prompt("Informe o valor da sua hora:"))
+            horasTrabalhadas = Number(prompt("Informe a quantidade de horas trabalhadas no mês: "))
+
+            if(isNaN(valorHora) || isNaN(horasTrabalhadas) || valorHora < 1 || horasTrabalhadas < 0) {
+                alert("Entrada inválida. Tente novamente!")
+                continue
+            }
+
+            break
+        }
+
+        return valorHora * horasTrabalhadas
+    }
+
+    function gerarImpostoDeRenda(salario:number) {
+        let desconto:number
+
+        if(salario > 4664.68) {
+            desconto = 27.5
+        } else if(salario >= 3751.06 && salario <= 4664.68) {
+            desconto = 22.5
+        } else if(salario >= 2826.66 && salario <= 3751.05) {
+            desconto = 15
+        } else if(salario >= 2428.81 && salario <= 2826.65) {
+            desconto = 7.5
+        } else {
+            desconto = 0
+        }
+
+        let ir = salario * (desconto / 100)
+        let inss = salario * 0.1
+        let sindicato = salario * 0.03
+        let valeAlimentação = salario * 0.08
+        let valeTransporte = salario * 0.06
+        let fgts = salario * 0.11
+        let totalImpostos = ir + inss + sindicato + valeAlimentação + valeTransporte
+        let salarioLiquido = salario - totalImpostos
+
+        return {
+            descontoIr: desconto,
+            ir: ir,
+            inss: inss,
+            sindicato: sindicato,
+            valeAlimentação: valeAlimentação,
+            valeTransporte: valeTransporte,
+            fgts: fgts,
+            totalImpostos: totalImpostos,
+            salarioLiquido: salarioLiquido
+        }
+    }
+
+    let salario = lerSalario()
+    let mapaImpostos = gerarImpostoDeRenda(salario)
+
+    const formatarMoeda = (v:number) => v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+
+    const imprimirLinha = (label:string, valor:number) => {
+        console.log(`${label.padEnd(30)} : ${formatarMoeda(valor)}`)
+    }
+
+    console.log(`--- CONTRACHEQUE ---`)
+    imprimirLinha(`Salário Bruto`, salario)
+
+    imprimirLinha(`(-) IR (${mapaImpostos.descontoIr}%)`,mapaImpostos.ir)
+    imprimirLinha(`(-) INSS (10%)`, mapaImpostos.inss)
+    imprimirLinha(`(-) SINDICATO (3%)`, mapaImpostos.sindicato)
+    imprimirLinha(`(-) V. ALIMENTAÇÃO (8%)`, mapaImpostos.valeAlimentação)
+    imprimirLinha(`(-) V. TRANSPORTE (6%)`, mapaImpostos.valeTransporte)
+    
+    console.log("-".repeat(45))
+    imprimirLinha(`FGTS (11%)`, mapaImpostos.fgts)
+    imprimirLinha(`Total de descontos`, mapaImpostos.totalImpostos)
+    imprimirLinha(`Salário Líquido`, mapaImpostos.salarioLiquido)
+    
 }
