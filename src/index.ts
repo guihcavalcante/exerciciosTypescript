@@ -72,6 +72,12 @@ document.getElementById("btn7-array")?.addEventListener('click', runQuestion7Arr
 document.getElementById("btn8-array")?.addEventListener('click', runQuestion8Array)
 document.getElementById("btn9-array")?.addEventListener('click', runQuestion9Array)
 
+// POO
+import { runQuestion1Poo } from "./poo/questao01.js";
+import { runQuestion2Poo } from "./poo/questao02.js";
 
+
+document.getElementById("btn1-poo")?.addEventListener('click', runQuestion1Poo)
+document.getElementById("btn2-poo")?.addEventListener('click', runQuestion2Poo)
 
 
