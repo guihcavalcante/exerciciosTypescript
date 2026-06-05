@@ -4,27 +4,45 @@
 //  Retornar valor do Lado e calcular Área;
 export function runQuestion2Poo() {
     class Quadrado {
-        private _lado!:number
+        private _lado:number
 
         constructor(lado: number) {
-            this.lado = lado
+            this.validarLado(lado)
+            this._lado = lado
+        }
+
+        private validarLado(lado: number) {
+            if(isNaN(lado) || lado <= 0) {
+                throw new Error("O lado é inválido.")
+            }
         }
 
         public set lado(novoLado: number) {
-            if(isNaN(novoLado) || novoLado <= 0) {
-                throw new Error("perdeu aura com esse erro. -10000 de aura.")
-            }
+            this.validarLado(novoLado)
             this._lado = novoLado
         }
+
 
         public get lado(): number {
             return this._lado
         }
 
         public calcularArea(): number {
-            return this.lado**2;
+            return this._lado**2;
         }
     }
 
+    try {
+        const novoQuadrado = new Quadrado(5)
+
+        console.log(novoQuadrado.calcularArea())
+        novoQuadrado.lado = 4
+        console.log(novoQuadrado.calcularArea())
+    } catch(error) {
+        console.error((error as Error).message)
+    }   
+    
 }
+
+
 

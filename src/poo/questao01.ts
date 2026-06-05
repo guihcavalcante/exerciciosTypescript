@@ -9,9 +9,24 @@ export function runQuestion1Poo() {
         private _material: string
 
         constructor(cor: string, circunferencia: number, material: string) {
+            this.validarCor(cor)
+            this.validarCircunferencia(circunferencia)
+
             this._cor = cor
             this._circunferencia = circunferencia
             this._material = material
+        }
+
+        private validarCor(cor: string): void {
+            if (!cor?.trim()) {
+                throw new Error("A cor não pode ser um texto vazio.")
+            }
+        }
+
+        private validarCircunferencia(valor: number): void {
+            if (isNaN(valor) || valor <= 0) {
+                throw new Error("A circunferência deve ser maior que zero.")
+            }
         }
 
         public get cor(): string {
@@ -19,9 +34,7 @@ export function runQuestion1Poo() {
         }
 
         public set cor(novaCor:string) {
-            if(!novaCor.trim()) {
-                throw new Error("A cor não pode ser um texto vazio.")
-            }
+            this.validarCor(novaCor)
 
             this._cor = novaCor
         }
@@ -37,8 +50,12 @@ export function runQuestion1Poo() {
     }
 
     try {
-        
+        const novaBola = new Bola("Azul", 60, "Couro")
+
+        console.log(`Circunferência: ${novaBola.circunferencia}`)
+        novaBola.cor = "Verde"
+        console.log(`Nova cor: ${novaBola.cor}`)
     } catch (error) {
-        
+        console.error((error as Error).message)
     }
 }
