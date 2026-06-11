@@ -75,9 +75,25 @@ document.getElementById("btn9-array")?.addEventListener('click', runQuestion9Arr
 // POO
 import { runQuestion1Poo } from "./poo/questao01.js";
 import { runQuestion2Poo } from "./poo/questao02.js";
+import { runQuestion3Poo } from "./poo/questao03.js";
+import { runQuestion4Poo } from "./poo/questao04.js";
+import { runQuestion5Poo } from "./poo/questao05.js";
+import { runQuestion6Poo } from "./poo/questao06.js";
+import { runQuestion7Poo } from "./poo/questao07.js";
+import { runQuestion8Poo } from "./poo/questao08.js";
+import { runQuestion9Poo } from "./poo/questao09.js";
+import { runQuestion10Poo } from "./poo/questao10.js";
 
 
 document.getElementById("btn1-poo")?.addEventListener('click', runQuestion1Poo)
 document.getElementById("btn2-poo")?.addEventListener('click', runQuestion2Poo)
+document.getElementById("btn3-poo")?.addEventListener('click', runQuestion3Poo)
+document.getElementById("btn4-poo")?.addEventListener('click', runQuestion4Poo)
+document.getElementById("btn5-poo")?.addEventListener('click', runQuestion5Poo)
+document.getElementById("btn6-poo")?.addEventListener('click', runQuestion6Poo)
+document.getElementById("btn7-poo")?.addEventListener('click', runQuestion7Poo)
+document.getElementById("btn8-poo")?.addEventListener('click', runQuestion8Poo)
+document.getElementById("btn9-poo")?.addEventListener('click', runQuestion9Poo)
+document.getElementById("btn10-poo")?.addEventListener('click', runQuestion10Poo)
 
 
