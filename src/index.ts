@@ -75,7 +75,7 @@ document.getElementById("btn9-array")?.addEventListener('click', runQuestion9Arr
 // POO
 import { runQuestion1Poo } from "./poo/questao01.js";
 import { runQuestion2Poo } from "./poo/questao02.js";
-// import { runQuestion3Poo } from "./poo/questao03.js";
+import { runQuestion3Poo } from "./poo/questao03.js";
 // import { runQuestion4Poo } from "./poo/questao04.js";
 // import { runQuestion5Poo } from "./poo/questao05.js";
 // import { runQuestion6Poo } from "./poo/questao06.js";
@@ -108,13 +108,25 @@ import { runQuestion2Poo } from "./poo/questao02.js";
 // import { runQuestion33Poo } from "./poo/questao33.js";
 // import { runQuestion34Poo } from "./poo/questao34.js";
 // import { runQuestion35Poo } from "./poo/questao35.js";
-
-
-
+// import { runQuestion36Poo } from "./poo/questao36.js";
+// import { runQuestion37Poo } from "./poo/questao37.js";
+// import { runQuestion38Poo } from "./poo/questao38.js";
+// import { runQuestion39Poo } from "./poo/questao39.js";
+// import { runQuestion40Poo } from "./poo/questao40.js";
+// import { runQuestion41Poo } from "./poo/questao41.js";
+// import { runQuestion42Poo } from "./poo/questao42.js";
+// import { runQuestion43Poo } from "./poo/questao43.js";
+// import { runQuestion44Poo } from "./poo/questao44.js";
+// import { runQuestion45Poo } from "./poo/questao45.js";
+// import { runQuestion46Poo } from "./poo/questao46.js";
+// import { runQuestion47Poo } from "./poo/questao47.js";
+// import { runQuestion48Poo } from "./poo/questao48.js";
+// import { runQuestion49Poo } from "./poo/questao49.js";
+// import { runQuestion50Poo } from "./poo/questao50.js";
 
 document.getElementById('btn1-poo')?.addEventListener('click', runQuestion1Poo);
 document.getElementById('btn2-poo')?.addEventListener('click', runQuestion2Poo);
-// document.getElementById('btn3-poo')?.addEventListener('click', runQuestion3Poo);
+document.getElementById('btn3-poo')?.addEventListener('click', runQuestion3Poo);
 // document.getElementById('btn4-poo')?.addEventListener('click', runQuestion4Poo);
 // document.getElementById('btn5-poo')?.addEventListener('click', runQuestion5Poo);
 // document.getElementById('btn6-poo')?.addEventListener('click', runQuestion6Poo);
@@ -147,5 +159,20 @@ document.getElementById('btn2-poo')?.addEventListener('click', runQuestion2Poo);
 // document.getElementById('btn33-poo')?.addEventListener('click', runQuestion33Poo);
 // document.getElementById('btn34-poo')?.addEventListener('click', runQuestion34Poo);
 // document.getElementById('btn35-poo')?.addEventListener('click', runQuestion35Poo);
+// document.getElementById('btn36-poo')?.addEventListener('click', runQuestion36Poo);
+// document.getElementById('btn37-poo')?.addEventListener('click', runQuestion37Poo);
+// document.getElementById('btn38-poo')?.addEventListener('click', runQuestion38Poo);
+// document.getElementById('btn39-poo')?.addEventListener('click', runQuestion39Poo);
+// document.getElementById('btn40-poo')?.addEventListener('click', runQuestion40Poo);
+// document.getElementById('btn41-poo')?.addEventListener('click', runQuestion41Poo);
+// document.getElementById('btn42-poo')?.addEventListener('click', runQuestion42Poo);
+// document.getElementById('btn43-poo')?.addEventListener('click', runQuestion43Poo);
+// document.getElementById('btn44-poo')?.addEventListener('click', runQuestion44Poo);
+// document.getElementById('btn45-poo')?.addEventListener('click', runQuestion45Poo);
+// document.getElementById('btn46-poo')?.addEventListener('click', runQuestion46Poo);
+// document.getElementById('btn47-poo')?.addEventListener('click', runQuestion47Poo);
+// document.getElementById('btn48-poo')?.addEventListener('click', runQuestion48Poo);
+// document.getElementById('btn49-poo')?.addEventListener('click', runQuestion49Poo);
+// document.getElementById('btn50-poo')?.addEventListener('click', runQuestion50Poo);
 
 
