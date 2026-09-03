@@ -77,16 +77,17 @@ export function runQuestion3Poo() {
         }
     }
 
-    console.log("=== QUESTÃO 3: CLASSE RETÂNGULO ===");
+    alert("=== QUESTÃO 3: CLASSE RETÂNGULO ===");
 
     const retangulo = new Retangulo(5, 10);
-    console.log(`Valores iniciais -> Lado A: ${retangulo.ladoA} | Lado B: ${retangulo.ladoB}`);
-    console.log(`Área calculada: ${retangulo.calcularArea()}`);
-    console.log(`Perímetro calculado: ${retangulo.calcularPerimetro()}`);
+    alert(`Valores iniciais -> Lado A: ${retangulo.ladoA} | Lado B: ${retangulo.ladoB}`);
+    alert(`Área calculada: ${retangulo.calcularArea()}`);
+    alert(`Perímetro calculado: ${retangulo.calcularPerimetro()}`);
 
     retangulo.ladoA = 8;
     retangulo.ladoB = 4;
-    console.log(`\nValores alterados -> Lado A: ${retangulo.ladoA} | Lado B: ${retangulo.ladoB}`);
-    console.log(`Nova Área calculada: ${retangulo.calcularArea()}`);
-    console.log(`Novo Perímetro calculado: ${retangulo.calcularPerimetro()}`);
-    console.log("===================================\n");
+    alert(`\nValores alterados -> Lado A: ${retangulo.ladoA} | Lado B: ${retangulo.ladoB}`);
+    alert(`Nova Área calculada: ${retangulo.calcularArea()}`);
+    alert(`Novo Perímetro calculado: ${retangulo.calcularPerimetro()}`);
+    alert("===================================\n");
+}

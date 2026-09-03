@@ -70,8 +70,8 @@ export function runQuestion4Poo() {
 
             let rodapesNecessarios = Math.ceil(perimetroLocal / objetoPiso.base)
 
-            console.log(`Pisos necessários: ${pisosNecessarios}`)
-            console.log(`Rodapés necessários: ${rodapesNecessarios}`)
+            alert(`Pisos necessários: ${pisosNecessarios}`)
+            alert(`Rodapés necessários: ${rodapesNecessarios}`)
         } catch(error) {
             console.error((error as Error).message)
         }

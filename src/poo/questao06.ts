@@ -59,5 +59,13 @@ export function runQuestion6Poo() {
                 throw new Error("Quantidade de saque inválido!")
             }
         }
+
+        public resumo() {
+            alert(`======== RESUMO ========\nNome: ${this._nomeCorrentista}\nNúmero: ${this._numeroConta}\nSaldo:${this._saldo}`)
+        }
     }
+    let contaCorrente = new ContaCorrente(56546, "Guilherme", 25000)
+
+    contaCorrente.saque(500)
+    contaCorrente.resumo()
 }

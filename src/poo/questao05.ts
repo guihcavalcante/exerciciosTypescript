@@ -96,8 +96,8 @@ export function runQuestion5Poo() {
     try {
         const novaPessoa = new Pessoa("Guilherme", 16, 79, 1.76)
         novaPessoa.envelhecer()
-        console.log(`Idade: ${novaPessoa.idade}`)
-        console.log(`Altura: ${novaPessoa.altura}`)
+        alert(`Idade: ${novaPessoa.idade}`)
+        alert(`Altura: ${novaPessoa.altura}`)
     } catch(error) {
         console.error((error as Error).message)
     }

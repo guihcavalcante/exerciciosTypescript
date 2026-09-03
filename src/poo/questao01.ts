@@ -52,9 +52,9 @@ export function runQuestion1Poo() {
     try {
         const novaBola = new Bola("Azul", 60, "Couro")
 
-        console.log(`Circunferência: ${novaBola.circunferencia}`)
+        alert(`Circunferência: ${novaBola.circunferencia}`)
         novaBola.cor = "Verde"
-        console.log(`Nova cor: ${novaBola.cor}`)
+        alert(`Nova cor: ${novaBola.cor}`)
     } catch (error) {
         console.error((error as Error).message)
     }

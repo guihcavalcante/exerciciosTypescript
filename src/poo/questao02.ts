@@ -35,9 +35,9 @@ export function runQuestion2Poo() {
     try {
         const novoQuadrado = new Quadrado(5)
 
-        console.log(novoQuadrado.calcularArea())
+        alert(novoQuadrado.calcularArea())
         novoQuadrado.lado = 4
-        console.log(novoQuadrado.calcularArea())
+        alert(novoQuadrado.calcularArea())
     } catch(error) {
         console.error((error as Error).message)
     }   
