@@ -8,5 +8,19 @@
 // momento.
 
 export function runQuestion10Poo() {
-    
+    class Tamagushi {
+        private _nome: string
+        private _fome: number
+        private _saude: number
+        private _idade: number
+        
+        constructor(nome: string, fome: number, saude: number, idade: number) {
+            this._nome = nome
+            this._fome = fome
+            this._saude = saude
+            this._idade = idade
+        }
+
+        
+    }
 }
