@@ -4,5 +4,7 @@
 // todos os funcionários cadastrados, utilizando um método da classe.
 
 export function runQuestion8Poo() {
-    
+    class Funcionario {
+        
+    }
 }
