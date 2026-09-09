@@ -58,6 +58,8 @@ export function runQuestion6Poo() {
             if(typeof quantidade !== 'number' || quantidade > this._saldo || quantidade <= 0) {
                 throw new Error("Quantidade de saque inválido!")
             }
+
+            this._saldo -= quantidade
         }
 
         public resumo() {
