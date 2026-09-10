@@ -32,7 +32,7 @@ export function runQuestion8Poo() {
         }
 
         set cargo(novoCargo: string) {
-            this.cargo = novoCargo
+            this._cargo = novoCargo
         }
 
         set salario(novoSalario: number) {
@@ -40,15 +40,22 @@ export function runQuestion8Poo() {
         }
 
         public exibirResumo(): any {
-            alert(`${"=".repeat(5)} RESUMO ${"=".repeat(5)}\nNome: ${this._nome}\nCargo: ${this._cargo}\nSalário: R$${this._salario}`)
+            alert(`${"=".repeat(5)} RESUMO ${"=".repeat(5)}\nNome: ${this._nome}\nCargo: ${this._cargo}\nSalário: ${this.formatarParaReal(this._salario)}`)
+        }
+
+        private formatarParaReal(valor: number) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(valor)
         }
     }
 
     function rodarPrograma() {
         let funcionarios:Funcionario[] = []
         while(true) {
-            let nome: string = prompt("Digite o nome do funcionário: ") || ""
-            let cargo: string = prompt("Digite o cargo do funcionário: ") || ""
+            let nome: string = prompt("Digite o nome do funcionário: ")?.trim() || ""
+            let cargo: string = prompt("Digite o cargo do funcionário: ")?.trim() || ""
             let salario: number = Number(prompt("Digite o salário do funcionário: "))
 
             if(isNaN(salario) || salario <= 0) {
@@ -56,12 +63,12 @@ export function runQuestion8Poo() {
                 continue
             }
 
-            if(typeof nome !== 'string') {
+            if(!nome) {
                 alert("Nome inválido. Tente novamente!")
                 continue
             }
 
-            if(typeof cargo !== 'string') {
+            if(!cargo) {
                 alert("Cargo inválido. Tente novamente!")
                 continue
             }
@@ -80,7 +87,7 @@ export function runQuestion8Poo() {
         }
 
         funcionarios.forEach((f) => {
-            alert(f.exibirResumo())
+            f.exibirResumo()
         })
     }
 
