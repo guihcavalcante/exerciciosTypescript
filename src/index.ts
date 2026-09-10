@@ -83,11 +83,11 @@ import { runQuestion7Poo } from "./poo/questao07.js";
 import { runQuestion8Poo } from "./poo/questao08.js";
 import { runQuestion9Poo } from "./poo/questao09.js";
 import { runQuestion10Poo } from "./poo/questao10.js";
-// import { runQuestion11Poo } from "./poo/questao11.js";
-// import { runQuestion12Poo } from "./poo/questao12.js";
-// import { runQuestion13Poo } from "./poo/questao13.js";
-// import { runQuestion14Poo } from "./poo/questao14.js";
-// import { runQuestion15Poo } from "./poo/questao15.js";
+import { runQuestion11Poo } from "./poo/questao11.js";
+import { runQuestion12Poo } from "./poo/questao12.js";
+import { runQuestion13Poo } from "./poo/questao13.js";
+import { runQuestion14Poo } from "./poo/questao14.js";
+import { runQuestion15Poo } from "./poo/questao15.js";
 // import { runQuestion16Poo } from "./poo/questao16.js";
 // import { runQuestion17Poo } from "./poo/questao17.js";
 // import { runQuestion18Poo } from "./poo/questao18.js";
@@ -135,11 +135,11 @@ document.getElementById("btn7-poo")?.addEventListener('click', runQuestion7Poo)
 document.getElementById("btn8-poo")?.addEventListener('click', runQuestion8Poo)
 document.getElementById("btn9-poo")?.addEventListener('click', runQuestion9Poo)
 document.getElementById("btn10-poo")?.addEventListener('click', runQuestion10Poo)
-// document.getElementById('btn11-poo')?.addEventListener('click', runQuestion11Poo);
-// document.getElementById('btn12-poo')?.addEventListener('click', runQuestion12Poo);
-// document.getElementById('btn13-poo')?.addEventListener('click', runQuestion13Poo);
-// document.getElementById('btn14-poo')?.addEventListener('click', runQuestion14Poo);
-// document.getElementById('btn15-poo')?.addEventListener('click', runQuestion15Poo);
+document.getElementById('btn11-poo')?.addEventListener('click', runQuestion11Poo);
+document.getElementById('btn12-poo')?.addEventListener('click', runQuestion12Poo);
+document.getElementById('btn13-poo')?.addEventListener('click', runQuestion13Poo);
+document.getElementById('btn14-poo')?.addEventListener('click', runQuestion14Poo);
+document.getElementById('btn15-poo')?.addEventListener('click', runQuestion15Poo);
 // document.getElementById('btn16-poo')?.addEventListener('click', runQuestion16Poo);
 // document.getElementById('btn17-poo')?.addEventListener('click', runQuestion17Poo);
 // document.getElementById('btn18-poo')?.addEventListener('click', runQuestion18Poo);
