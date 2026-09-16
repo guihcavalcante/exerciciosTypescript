@@ -57,7 +57,6 @@ export function runQuestion15Poo() {
     } else {
         funcionarios.push(novoFuncionario);
         
-        console.log(`Funcionário: ${funcionarios[0].nome}`);
-        console.log(`Salário: R$ ${funcionarios[0].calcularSalario().toFixed(2)}`);
+        alert(`Funcionário: ${funcionarios[0].nome}\nSalário: R$ ${funcionarios[0].calcularSalario().toFixed(2)}`);
     }
 }
