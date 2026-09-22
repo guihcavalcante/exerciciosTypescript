@@ -1,5 +1,13 @@
 // 16. Abstração Herança Polimorfismo Repetição Encapsulamento Arrays
-// Um zoológico possui mamíferos e aves... O sistema deve cadastrar vários animais, listar por tipo e ao final disparar a rotina simularHoraAlimentacao() chamando o método de som de cada um.
+// Um zoológico possui mamíferos e aves. Ambos têm nome, espécie, idade e sexo todos privados.
+// Mamíferos têm tipo de alimentação (ex: &quot;Carnívoro&quot;, &quot;Herbívoro”, ...). Para as aves precisa-se saber
+// se são migratórias ou não. Cada animal tem um comportamento de ‘emitir som’ e ‘mover’ diferente.
+// O Método &quot;Hora da Alimentação&quot; (Rotina Polimórfica): Crie uma função ou método executável
+// chamado simularHoraAlimentacao(listaAnimais: Animal[]). Esse método deve percorrer o array de
+// animais com um laço de repetição, imprimindo o nome do animal sendo alimentado pelo tratador e
+// acionando o seu método emitirSom()
+// Fluxo do Programa: O sistema deve cadastrar vários animais, listar por tipo (Mamíferos ou Aves) e
+// ao final a disparar a rotina simularHoraAlimentacao() chamando o método de som de cada um.
 
 export function runQuestion16Poo() {
     abstract class Animal {
