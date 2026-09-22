@@ -1,4 +1,3 @@
-// Declaração para o TS não reclamar da biblioteca que injetamos no HTML
 declare const ts: any;
 
 const configQuestoes: Record<string, number> = {
@@ -81,14 +80,11 @@ function rodarCodigo(): void {
 
     let codigo: string = editor.value;
     
-    // Remove imports/exports que impedem a execução direta
     codigo = codigo.replace(/import .*/g, '').replace(/export .*/g, '');
     
     try {
-        // A Mágica: Transforma o TypeScript do editor em JavaScript puro que o navegador entende
         const codigoJavaScript = ts.transpile(codigo);
         
-        // Executa o código. Seus alerts e prompts vão aparecer normalmente!
         new Function(codigoJavaScript)();
         
     } catch (erro: unknown) { 
