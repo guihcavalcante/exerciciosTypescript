@@ -1,177 +1,106 @@
-// CONDICIONAL
-import { runQuestion1Condicional } from "./condicional/exercicio01.js";
-import { runQuestion2Condicional } from "./condicional/exercicio02.js";
-import { runQuestion3Condicional } from "./condicional/exercicio03.js";
-import { runQuestion4Condicional } from "./condicional/exercicio04.js";
+// Declaração para o TS não reclamar da biblioteca que injetamos no HTML
+declare const ts: any;
 
+const configQuestoes: Record<string, number> = {
+    'condicional': 4,
+    'repeticao': 5,
+    'funcoes': 10,
+    'array': 9,
+    'poo': 50,
+    'exerciciosLista': 10 
+};
 
-document.getElementById("btn1-condicional")?.addEventListener('click', runQuestion1Condicional)
-document.getElementById("btn2-condicional")?.addEventListener('click', runQuestion2Condicional)
-document.getElementById("btn3-condicional")?.addEventListener('click', runQuestion3Condicional)
-document.getElementById("btn4-condicional")?.addEventListener('click', runQuestion4Condicional)
+const PASTA_BASE = './src'; 
+const EXTENSAO = '.ts'; 
 
-// REPETIÇÃO
-import { runQuestion1Repeticao } from "./repeticao/questao1.js";
-import { runQuestion2Repeticao } from "./repeticao/questao2.js";
-import { runQuestion3Repeticao } from "./repeticao/questao3.js";
-import { runQuestion4Repeticao } from "./repeticao/questao4.js";
-import { runQuestion5Repeticao } from "./repeticao/questao5.js";
+function navegar(idTelaAlvo: string): void {
+    const telas: NodeListOf<Element> = document.querySelectorAll('.tela');
+    telas.forEach(tela => tela.classList.add('oculto'));
 
+    const telaAlvo = document.getElementById(idTelaAlvo);
+    if (telaAlvo) {
+        telaAlvo.classList.remove('oculto');
+    }
+}
 
-document.getElementById("btn1-repeticao")?.addEventListener('click', runQuestion1Repeticao)
-document.getElementById("btn2-repeticao")?.addEventListener('click', runQuestion2Repeticao)
-document.getElementById("btn3-repeticao")?.addEventListener('click', runQuestion3Repeticao)
-document.getElementById("btn4-repeticao")?.addEventListener('click', runQuestion4Repeticao)
-document.getElementById("btn5-repeticao")?.addEventListener('click', runQuestion5Repeticao)
+function abrirTopico(nomeDoTopico: string): void {
+    const titulo = document.getElementById('titulo-topico-atual') as HTMLHeadingElement;
+    const container = document.getElementById('lista-botoes-questoes') as HTMLDivElement;
+    
+    if (!titulo || !container) return;
 
-// FUNÇÃO
-import { runQuestion1Funcao } from "./funcoes/exercicio01.js";
-import { runQuestion2Funcao } from "./funcoes/exercicio02.js";
-import { runQuestion3Funcao } from "./funcoes/exercicio03.js";
-import { runQuestion4Funcao } from "./funcoes/exercicio04.js";
-import { runQuestion5Funcao } from "./funcoes/exercicio05.js";
-import { runQuestion6Funcao } from "./funcoes/exercicio06.js";
-import { runQuestion7Funcao } from "./funcoes/exercicio07.js";
-import { runQuestion8Funcao } from "./funcoes/exercicio08.js";
-import { runQuestion9Funcao } from "./funcoes/exercicio09.js";
-import { runQuestion10Funcao } from "./funcoes/exercicio10.js";
+    container.innerHTML = ''; 
+    titulo.innerText = `Questões de ${nomeDoTopico.toUpperCase()}`;
 
+    const qtdQuestoes = configQuestoes[nomeDoTopico] || 0;
+    
+    for(let i = 1; i <= qtdQuestoes; i++) {
+        const btn = document.createElement('button');
+        btn.innerText = `Questão ${i}`;
+        btn.onclick = () => abrirEditor(nomeDoTopico, i);
+        container.appendChild(btn);
+    }
 
-document.getElementById("btn1-funcao")?.addEventListener('click', runQuestion1Funcao)
-document.getElementById("btn2-funcao")?.addEventListener('click', runQuestion2Funcao)
-document.getElementById("btn3-funcao")?.addEventListener('click', runQuestion3Funcao)
-document.getElementById("btn4-funcao")?.addEventListener('click', runQuestion4Funcao)
-document.getElementById("btn5-funcao")?.addEventListener('click', runQuestion5Funcao)
-document.getElementById("btn6-funcao")?.addEventListener('click', runQuestion6Funcao)
-document.getElementById("btn7-funcao")?.addEventListener('click', runQuestion7Funcao)
-document.getElementById("btn8-funcao")?.addEventListener('click', runQuestion8Funcao)
-document.getElementById("btn9-funcao")?.addEventListener('click', runQuestion9Funcao)
-document.getElementById("btn10-funcao")?.addEventListener('click', runQuestion10Funcao)
+    navegar('tela-questoes');
+}
 
-// ARRAY
-import { runAula1Array } from "./array/aula01.js";
-import { runQuestion1Array } from "./array/exercicio01.js";
-import { runQuestion2Array } from "./array/exercicio02.js";
-import { runQuestion3Array } from "./array/exercicio03.js";
-import { runQuestion4Array } from "./array/exercicio04.js";
-import { runQuestion5Array } from "./array/exercicio05.js";
-import { runQuestion6Array } from "./array/exercicio06.js";
-import { runQuestion7Array } from "./array/exercicio07.js";
-import { runQuestion8Array } from "./array/exercicio08.js";
-import { runQuestion9Array } from "./array/exercicio09.js";
+async function abrirEditor(topico: string, numeroQuestao: number): Promise<void> {
+    const tituloQuestao = document.getElementById('titulo-questao-atual') as HTMLHeadingElement;
+    const editor = document.getElementById('editor-codigo') as HTMLTextAreaElement;
+    
+    if (tituloQuestao) {
+        tituloQuestao.innerText = `${topico.toUpperCase()} - Questão ${numeroQuestao}`;
+    }
+    
+    if (editor) {
+        editor.value = "A carregar código..."; 
+        
+        const numeroFormatado = numeroQuestao.toString().padStart(2, '0');
+        const caminhoDoFicheiro = `${PASTA_BASE}/${topico}/questao${numeroFormatado}${EXTENSAO}`;
+        
+        try {
+            const resposta = await fetch(caminhoDoFicheiro);
+            
+            if (resposta.ok) {
+                const codigoTexto = await resposta.text();
+                editor.value = codigoTexto;
+            } else {
+                editor.value = `// Erro: Ficheiro não encontrado.\n// O sistema procurou no caminho: ${caminhoDoFicheiro}`;
+            }
+        } catch (erro) {
+            editor.value = `// Erro de ligação ao tentar ler o ficheiro.`;
+        }
+    }
+    
+    navegar('tela-codigo');
+}
 
+function rodarCodigo(): void {
+    const editor = document.getElementById('editor-codigo') as HTMLTextAreaElement;
+    if (!editor) return;
 
-document.getElementById("btn1-aulaArray")?.addEventListener('click', runAula1Array)
-document.getElementById("btn1-array")?.addEventListener('click', runQuestion1Array)
-document.getElementById("btn2-array")?.addEventListener('click', runQuestion2Array)
-document.getElementById("btn3-array")?.addEventListener('click', runQuestion3Array)
-document.getElementById("btn4-array")?.addEventListener('click', runQuestion4Array)
-document.getElementById("btn5-array")?.addEventListener('click', runQuestion5Array)
-document.getElementById("btn6-array")?.addEventListener('click', runQuestion6Array)
-document.getElementById("btn7-array")?.addEventListener('click', runQuestion7Array)
-document.getElementById("btn8-array")?.addEventListener('click', runQuestion8Array)
-document.getElementById("btn9-array")?.addEventListener('click', runQuestion9Array)
+    let codigo: string = editor.value;
+    
+    // Remove imports/exports que impedem a execução direta
+    codigo = codigo.replace(/import .*/g, '').replace(/export .*/g, '');
+    
+    try {
+        // A Mágica: Transforma o TypeScript do editor em JavaScript puro que o navegador entende
+        const codigoJavaScript = ts.transpile(codigo);
+        
+        // Executa o código. Seus alerts e prompts vão aparecer normalmente!
+        new Function(codigoJavaScript)();
+        
+    } catch (erro: unknown) { 
+        if (erro instanceof Error) {
+            alert("Erro ao executar o código: " + erro.message);
+        } else {
+            alert("Ocorreu um erro desconhecido.");
+        }
+    }
+}
 
-// POO
-import { runQuestion1Poo } from "./poo/questao01.js";
-import { runQuestion2Poo } from "./poo/questao02.js";
-import { runQuestion3Poo } from "./poo/questao03.js";
-import { runQuestion4Poo } from "./poo/questao04.js";
-import { runQuestion5Poo } from "./poo/questao05.js";
-import { runQuestion6Poo } from "./poo/questao06.js";
-import { runQuestion7Poo } from "./poo/questao07.js";
-import { runQuestion8Poo } from "./poo/questao08.js";
-import { runQuestion9Poo } from "./poo/questao09.js";
-import { runQuestion10Poo } from "./poo/questao10.js";
-import { runQuestion11Poo } from "./poo/questao11.js";
-import { runQuestion12Poo } from "./poo/questao12.js";
-import { runQuestion13Poo } from "./poo/questao13.js";
-import { runQuestion14Poo } from "./poo/questao14.js";
-import { runQuestion15Poo } from "./poo/questao15.js";
-import { runQuestion16Poo } from "./poo/questao16.js";
-import { runQuestion17Poo } from "./poo/questao17.js";
-import { runQuestion18Poo } from "./poo/questao18.js";
-import { runQuestion19Poo } from "./poo/questao19.js";
-import { runQuestion20Poo } from "./poo/questao20.js";
-import { runQuestion21Poo } from "./poo/questao21.js";
-import { runQuestion22Poo } from "./poo/questao22.js";
-import { runQuestion23Poo } from "./poo/questao23.js";
-import { runQuestion24Poo } from "./poo/questao24.js";
-import { runQuestion25Poo } from "./poo/questao25.js";
-import { runQuestion26Poo } from "./poo/questao26.js";
-import { runQuestion27Poo } from "./poo/questao27.js";
-// import { runQuestion28Poo } from "./poo/questao28.js";
-// import { runQuestion29Poo } from "./poo/questao29.js";
-// import { runQuestion30Poo } from "./poo/questao30.js";
-// import { runQuestion31Poo } from "./poo/questao31.js";
-// import { runQuestion32Poo } from "./poo/questao32.js";
-// import { runQuestion33Poo } from "./poo/questao33.js";
-// import { runQuestion34Poo } from "./poo/questao34.js";
-// import { runQuestion35Poo } from "./poo/questao35.js";
-// import { runQuestion36Poo } from "./poo/questao36.js";
-// import { runQuestion37Poo } from "./poo/questao37.js";
-// import { runQuestion38Poo } from "./poo/questao38.js";
-// import { runQuestion39Poo } from "./poo/questao39.js";
-// import { runQuestion40Poo } from "./poo/questao40.js";
-// import { runQuestion41Poo } from "./poo/questao41.js";
-// import { runQuestion42Poo } from "./poo/questao42.js";
-// import { runQuestion43Poo } from "./poo/questao43.js";
-// import { runQuestion44Poo } from "./poo/questao44.js";
-// import { runQuestion45Poo } from "./poo/questao45.js";
-// import { runQuestion46Poo } from "./poo/questao46.js";
-// import { runQuestion47Poo } from "./poo/questao47.js";
-// import { runQuestion48Poo } from "./poo/questao48.js";
-// import { runQuestion49Poo } from "./poo/questao49.js";
-// import { runQuestion50Poo } from "./poo/questao50.js";
-
-
-document.getElementById("btn1-poo")?.addEventListener('click', runQuestion1Poo)
-document.getElementById("btn2-poo")?.addEventListener('click', runQuestion2Poo)
-document.getElementById("btn3-poo")?.addEventListener('click', runQuestion3Poo)
-document.getElementById("btn4-poo")?.addEventListener('click', runQuestion4Poo)
-document.getElementById("btn5-poo")?.addEventListener('click', runQuestion5Poo)
-document.getElementById("btn6-poo")?.addEventListener('click', runQuestion6Poo)
-document.getElementById("btn7-poo")?.addEventListener('click', runQuestion7Poo)
-document.getElementById("btn8-poo")?.addEventListener('click', runQuestion8Poo)
-document.getElementById("btn9-poo")?.addEventListener('click', runQuestion9Poo)
-document.getElementById("btn10-poo")?.addEventListener('click', runQuestion10Poo)
-document.getElementById('btn11-poo')?.addEventListener('click', runQuestion11Poo);
-document.getElementById('btn12-poo')?.addEventListener('click', runQuestion12Poo);
-document.getElementById('btn13-poo')?.addEventListener('click', runQuestion13Poo);
-document.getElementById('btn14-poo')?.addEventListener('click', runQuestion14Poo);
-document.getElementById('btn15-poo')?.addEventListener('click', runQuestion15Poo);
-document.getElementById('btn16-poo')?.addEventListener('click', runQuestion16Poo);
-document.getElementById('btn17-poo')?.addEventListener('click', runQuestion17Poo);
-document.getElementById('btn18-poo')?.addEventListener('click', runQuestion18Poo);
-document.getElementById('btn19-poo')?.addEventListener('click', runQuestion19Poo);
-document.getElementById('btn20-poo')?.addEventListener('click', runQuestion20Poo);
-document.getElementById('btn21-poo')?.addEventListener('click', runQuestion21Poo);
-document.getElementById('btn22-poo')?.addEventListener('click', runQuestion22Poo);
-document.getElementById('btn23-poo')?.addEventListener('click', runQuestion23Poo);
-document.getElementById('btn24-poo')?.addEventListener('click', runQuestion24Poo);
-document.getElementById('btn25-poo')?.addEventListener('click', runQuestion25Poo);
-document.getElementById('btn26-poo')?.addEventListener('click', runQuestion26Poo);
-document.getElementById('btn27-poo')?.addEventListener('click', runQuestion27Poo);
-// document.getElementById('btn28-poo')?.addEventListener('click', runQuestion28Poo);
-// document.getElementById('btn29-poo')?.addEventListener('click', runQuestion29Poo);
-// document.getElementById('btn30-poo')?.addEventListener('click', runQuestion30Poo);
-// document.getElementById('btn31-poo')?.addEventListener('click', runQuestion31Poo);
-// document.getElementById('btn32-poo')?.addEventListener('click', runQuestion32Poo);
-// document.getElementById('btn33-poo')?.addEventListener('click', runQuestion33Poo);
-// document.getElementById('btn34-poo')?.addEventListener('click', runQuestion34Poo);
-// document.getElementById('btn35-poo')?.addEventListener('click', runQuestion35Poo);
-// document.getElementById('btn36-poo')?.addEventListener('click', runQuestion36Poo);
-// document.getElementById('btn37-poo')?.addEventListener('click', runQuestion37Poo);
-// document.getElementById('btn38-poo')?.addEventListener('click', runQuestion38Poo);
-// document.getElementById('btn39-poo')?.addEventListener('click', runQuestion39Poo);
-// document.getElementById('btn40-poo')?.addEventListener('click', runQuestion40Poo);
-// document.getElementById('btn41-poo')?.addEventListener('click', runQuestion41Poo);
-// document.getElementById('btn42-poo')?.addEventListener('click', runQuestion42Poo);
-// document.getElementById('btn43-poo')?.addEventListener('click', runQuestion43Poo);
-// document.getElementById('btn44-poo')?.addEventListener('click', runQuestion44Poo);
-// document.getElementById('btn45-poo')?.addEventListener('click', runQuestion45Poo);
-// document.getElementById('btn46-poo')?.addEventListener('click', runQuestion46Poo);
-// document.getElementById('btn47-poo')?.addEventListener('click', runQuestion47Poo);
-// document.getElementById('btn48-poo')?.addEventListener('click', runQuestion48Poo);
-// document.getElementById('btn49-poo')?.addEventListener('click', runQuestion49Poo);
-// document.getElementById('btn50-poo')?.addEventListener('click', runQuestion50Poo);
+(window as any).navegar = navegar;
+(window as any).abrirTopico = abrirTopico;
+(window as any).abrirEditor = abrirEditor;
+(window as any).rodarCodigo = rodarCodigo;

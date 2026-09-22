@@ -1,108 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Questões</title>
+    
     <link rel="stylesheet" href="./src/styles/global.css">
     <link rel="stylesheet" href="./src/styles/home.css">
 
-    <script type="module" src="dist/index.js" defer></script>
+    <!-- Biblioteca que permite rodar TypeScript direto no navegador -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/5.2.2/typescript.min.js"></script>
+
+    <script type="module" src="./dist/index.js" defer></script>
 </head>
 <body>
-    <h2>Condicional</h2>
-    <div class="container-botoes">
-        <button id="btn1-condicional">Questão 1 - Condicional</button>
-        <button id="btn2-condicional">Questão 2 - Condicional</button>
-        <button id="btn3-condicional">Questão 3 - Condicional</button>
-        <button id="btn4-condicional">Questão 4 - Condicional</button>
-    </div>
-    <h2>Repetição</h2>
-    <div class="container-botoes">
-        <button id="btn1-repeticao">Questão 1 - Repetição</button>
-        <button id="btn2-repeticao">Questão 2 - Repetição</button>
-        <button id="btn3-repeticao">Questão 3 - Repetição</button>
-        <button id="btn4-repeticao">Questão 4 - Repetição</button>
-        <button id="btn5-repeticao">Questão 5 - Repetição</button>
-    </div>
-    <h2>Função</h2>
-    <div class="container-botoes">
-        <button id="btn1-funcao">Questão 1 - Função</button>
-        <button id="btn2-funcao">Questão 2 - Função</button>
-        <button id="btn3-funcao">Questão 3 - Função</button>
-        <button id="btn4-funcao">Questão 4 - Função</button>
-        <button id="btn5-funcao">Questão 5 - Função</button>
-        <button id="btn6-funcao">Questão 6 - Função</button>
-        <button id="btn7-funcao">Questão 7 - Função</button>
-        <button id="btn8-funcao">Questão 8 - Função</button>
-        <button id="btn9-funcao">Questão 9 - Função</button>
-        <button id="btn10-funcao">Questão 10 - Função</button>
-    </div>
-    <h2>Array</h2>
-    <div class="container-botoes">
-        <button id="btn1-aulaArray">Aula 1 - Array</button>
-        <button id="btn1-array">Questão 1 - Array</button>
-        <button id="btn2-array">Questão 2 - Array</button>
-        <button id="btn3-array">Questão 3 - Array</button>
-        <button id="btn4-array">Questão 4 - Array</button>
-        <button id="btn5-array">Questão 5 - Array</button>
-        <button id="btn6-array">Questão 6 - Array</button>
-        <button id="btn7-array">Questão 7 - Array</button>
-        <button id="btn8-array">Questão 8 - Array</button>
-        <button id="btn9-array">Questão 9 - Array</button>
-    </div>
-    <h2>POO</h2>
-    <div class="container-botoes">
-        <button id="btn1-poo">Questão 1 - POO</button>
-        <button id="btn2-poo">Questão 2 - POO</button>
-        <button id="btn3-poo">Questão 3 - POO</button>
-        <button id="btn4-poo">Questão 4 - POO</button>
-        <button id="btn5-poo">Questão 5 - POO</button>
-        <button id="btn6-poo">Questão 6 - POO</button>
-        <button id="btn7-poo">Questão 7 - POO</button>
-        <button id="btn8-poo">Questão 8 - POO</button>
-        <button id="btn9-poo">Questão 9 - POO</button>
-        <button id="btn10-poo">Questão 10 - POO</button>
-        <button id="btn11-poo">Questão 11 - POO</button>
-        <button id="btn12-poo">Questão 12 - POO</button>
-        <button id="btn13-poo">Questão 13 - POO</button>
-        <button id="btn14-poo">Questão 14 - POO</button>
-        <button id="btn15-poo">Questão 15 - POO</button>
-        <button id="btn16-poo">Questão 16 - POO</button>
-        <button id="btn17-poo">Questão 17 - POO</button>
-        <button id="btn18-poo">Questão 18 - POO</button>
-        <button id="btn19-poo">Questão 19 - POO</button>
-        <button id="btn20-poo">Questão 20 - POO</button>
-        <button id="btn21-poo">Questão 21 - POO</button>
-        <button id="btn22-poo">Questão 22 - POO</button>
-        <button id="btn23-poo">Questão 23 - POO</button>
-        <button id="btn24-poo">Questão 24 - POO</button>
-        <button id="btn25-poo">Questão 25 - POO</button>
-        <button id="btn26-poo">Questão 26 - POO</button>
-        <button id="btn27-poo">Questão 27 - POO</button>
-        <button id="btn28-poo">Questão 28 - POO</button>
-        <button id="btn29-poo">Questão 29 - POO</button>
-        <button id="btn30-poo">Questão 30 - POO</button>
-        <button id="btn31-poo">Questão 31 - POO</button>
-        <button id="btn32-poo">Questão 32 - POO</button>
-        <button id="btn33-poo">Questão 33 - POO</button>
-        <button id="btn34-poo">Questão 34 - POO</button>
-        <button id="btn35-poo">Questão 35 - POO</button>
-        <button id="btn36-poo">Questão 36 - POO</button>
-        <button id="btn37-poo">Questão 37 - POO</button>
-        <button id="btn38-poo">Questão 38 - POO</button>
-        <button id="btn39-poo">Questão 39 - POO</button>
-        <button id="btn40-poo">Questão 40 - POO</button>
-        <button id="btn41-poo">Questão 41 - POO</button>
-        <button id="btn42-poo">Questão 42 - POO</button>
-        <button id="btn43-poo">Questão 43 - POO</button>
-        <button id="btn44-poo">Questão 44 - POO</button>
-        <button id="btn45-poo">Questão 45 - POO</button>
-        <button id="btn46-poo">Questão 46 - POO</button>
-        <button id="btn47-poo">Questão 47 - POO</button>
-        <button id="btn48-poo">Questão 48 - POO</button>
-        <button id="btn49-poo">Questão 49 - POO</button>
-        <button id="btn50-poo">Questão 50 - POO</button>
-    </div>
+
+    <section id="tela-bemvindo" class="tela ativa">
+        <div class="card-boas-vindas">
+            <h1>Bem-vindo à Lista de Questões</h1>
+            <p>Professor: [Seu Nome Aqui]</p>
+            <button onclick="navegar('tela-topicos')" class="btn-destaque">Entrar</button>
+        </div>
+    </section>
+
+    <section id="tela-topicos" class="tela oculto">
+        <h2>Escolha um Tópico</h2>
+        <div class="grid-topicos">
+            <button onclick="abrirTopico('condicional')">Condicional</button>
+            <button onclick="abrirTopico('repeticao')">Repetição</button>
+            <button onclick="abrirTopico('funcoes')">Funções</button>
+            <button onclick="abrirTopico('array')">Array</button>
+            <button onclick="abrirTopico('poo')">POO</button>
+            <button onclick="abrirTopico('exerciciosLista')">Exercícios da Lista</button>
+        </div>
+        <button onclick="navegar('tela-bemvindo')" class="btn-voltar">Voltar</button>
+    </section>
+
+    <section id="tela-questoes" class="tela oculto">
+        <h2 id="titulo-topico-atual">Questões</h2>
+        <div id="lista-botoes-questoes" class="container-botoes">
+        </div>
+        <button onclick="navegar('tela-topicos')" class="btn-voltar">Voltar aos Tópicos</button>
+    </section>
+
+    <section id="tela-codigo" class="tela oculto">
+        <div class="cabecalho-codigo">
+            <h2 id="titulo-questao-atual">Questão 1</h2>
+            <button id="btn-rodar" class="btn-destaque" onclick="rodarCodigo()">▶ Rodar Código</button>
+        </div>
+        
+        <div class="area-codigo">
+            <textarea id="editor-codigo" spellcheck="false" style="height: 400px;"></textarea>
+        </div>
+
+        <button onclick="navegar('tela-questoes')" class="btn-voltar">Voltar às Questões</button>
+    </section>
+
 </body>
 </html>
