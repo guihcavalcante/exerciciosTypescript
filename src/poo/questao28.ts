@@ -8,7 +8,29 @@
 // temporada.
 
 export function runQuestion28Poo() {
-    class Hospedagem {
-        
+    abstract class Hospedagem {
+        constructor(private _numeroQuarto: number, private _precoDiaria: number) {}
+
+        protected formatarParaReal(valor: number) {
+            return Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(valor)
+        }
+    }
+
+    class HospedagemBasica extends Hospedagem {
+        constructor(numQuarto: number, precoDiaria: number) {
+            super(numQuarto, precoDiaria)
+        }
+    }
+
+    class SuiteMaster extends Hospedagem {
+        private _valorAdicional: number
+
+        constructor(valorAdicional: number, numQuarto: number, precoDiaria: number) {
+            super(numQuarto, precoDiaria)
+            this._valorAdicional = valorAdicional
+        }
     }
 }
